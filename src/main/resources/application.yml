@@ -1,3 +1,13 @@
+spring:
+    datasource:
+        url: "jdbc:mysql://localhost/nbtttracuudbs"
+        username: nbtt2022
+        password: nbtt2022
+    sql:
+        init:
+            mode: always
+            encoding: UTF-8
+
 logging:
     level:
         root : info
@@ -6,3 +16,7 @@ logging:
     logback:
         rollingpolicy:
             max-file-size : 1MB
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
