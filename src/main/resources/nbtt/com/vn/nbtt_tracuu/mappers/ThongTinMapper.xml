@@ -6,21 +6,36 @@
   <resultMap id="thongTinMap" type="nbtt.com.vn.nbtt_tracuu.beans.ThongTin" autoMapping="true">
     <association property="nhanHieu" javaType="nbtt.com.vn.nbtt_tracuu.beans.NhanHieu" autoMapping="true"></association>
   </resultMap>
-  <select id="selectAll" resultMap="thongTinMap">
+  <!---select id = "selectByTimKiem"-->
+  <select id="selectBySTT" resultMap="thongTinMap">
     SELECT
-      tracuu_thongtin.sTT,
-      tracuu_thongtin.ten,
-      tracuu_thongtin.hangSanXuat,
-      tracuu_thongtin.gia,
-      tracuu_thongtin.maSP,
-      tracuu_thongtin.tacDung,
-      tracuu_thongtin.tonKho,
-      tracuu_nhanhieu.loaiSP
+        tracuu_thongtin.sTT
+        , tracuu_thongtin.ten
+        , tracuu_thongtin.hangSanXuat
+        , tracuu_thongtin.gia
+        , tracuu_thongtin.maSP
+        , tracuu_thongtin.tacDung
+        , tracuu_thongtin.tonKho
+        , tracuu_nhanhieu.loaiSP 
     FROM 
-      tracuu_thongtin
-      LEFT OUTER JOIN  tracuu_nhanhieu
-        ON tracuu_thongtin.maSP = tracuu_nhanhieu.maSP
-      ORDER BY 
+        tracuu_thongtin 
+        LEFT OUTER JOIN tracuu_nhanhieu 
+        ON tracuu_thongtin.maSP = tracuu_nhanhieu.maSP 
+    WHERE
+        tracuu_thongtin.sTT = #{sTT}
+    <!-- <where>
+      <if test="maSP != null">
+        AND tracuu_thongtin.maSP = #{maSP} 
+      </if>
+      <if test="key != null">
+        AND tracuu_thongtin.ten LIKE CONCAT ('%', #{key}, '%')
+      </if>
+      <if test="sTT != null">
+        AND tracuu_thongtin.sTT = #{sTT}
+      </if>
+    </where> -->
+   
+    ORDER BY
         sTT
   </select>
 </mapper>
