@@ -9,5 +9,9 @@ import nbtt.com.vn.nbtt_tracuu.beans.NhanHieu;
 @Mapper
 public interface NhanHieuMapper {
     
+    /**
+     * 
+     * @return
+     */
     public List <NhanHieu> selectAll();
 }

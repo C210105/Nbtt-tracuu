@@ -13,6 +13,7 @@ public class ThongTin {
     private String ten; // 名
     private String hangSanXuat; // 製
     private Integer gia; // 価格
+    private String maSP;
     private String tacDung; // 用
     private Integer tonKho; // 残り
     NhanHieu nhanHieu;
