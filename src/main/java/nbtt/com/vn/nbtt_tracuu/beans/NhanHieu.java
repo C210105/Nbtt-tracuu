@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class NhanHieu {
     
-    private String maSP; // 
-    private String loaiSP; // 
+    private String maSP; // 　商品番号
+    private String loaiSP; // 商品書類
 }

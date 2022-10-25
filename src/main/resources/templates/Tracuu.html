@@ -87,15 +87,16 @@
         </div>
         
         <div class="container mb-4 bg-light">
+            <form th:action="@{/showtracuu}" method="get">
             <div class="row">
                 <div class="col-md-12">
                     <h4>Tra cứu sản phẩm</h4>
                 </div>
                 <div class="col-md-6">
                    <div class="mb-3">
-                        <label for="" class="form-label">Loại sản phẩm</label>
-                        <select class="form-select" name="" id="">
-                            <option selected>Chọn loại sản phẩm</option>
+                        <label for="NhanHieu" class="form-label">Loại sản phẩm</label>
+                        <select class="form-select" th:field="${timKiemForm.maSP}" id="ThongTin">
+                            <option value=""></option>
                             <option th:each="NhanHieu : ${nhanHieus}" th:value="${NhanHieu.maSP}" th:text="${NhanHieu.loaiSP}"></option>
                             <!-- <option th:each="ThongTinXuatXuSP : ${thongTinXuatXuSPs}" th:value="${ThongTinXuatXuSP.masp}" th:text="${ThongTinXuatXuSP.loaisp}"></option> -->
                         </select>
@@ -103,19 +104,20 @@
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label for="formGroupExampleInput" class="form-label">Nhập</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Tên sản phẩm">
+                        <label for="key" class="form-label">Nhập</label>
+                        <input type="text" class="form-control" th:field="${timKiemForm.key}" id="key" placeholder="Tên sản phẩm">
                     </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <button type="button" class="btn btn-outline-primary">Tìm</button>
-                    <button type="button" class="btn btn-outline-secondary">Làm mới</button>
+                    <button type="submit" class="btn btn-outline-primary">Tìm</button>
+                    <a th:href="@{showtracuu/lammoi}" class="btn btn-outline-secondary">Làm mới</a>
                     <button type="button" class="btn btn-outline-danger">Xóa</button>
                 </div>
             </div>
+            </form>
 
             <div class="row p-3">
                 <div class="col-md-12">
