@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import nbtt.com.vn.nbtt_tracuu.beans.ThongTin;
-import nbtt.com.vn.nbtt_tracuu.beans.TimKiem;
+import nbtt.com.vn.nbtt_tracuu.beans.TimKiemForm;
 
 @SpringBootTest
 public class ThongTinServiceTest {
@@ -37,25 +37,25 @@ public class ThongTinServiceTest {
     //     assertThat(thongTin.getNhanHieu().getLoaiSP()).isEqualTo("Rượu");
     // }
 
-    // @DisplayName("商品番号")
-    // @Test
-    // void test1(){
+    @DisplayName("商品番号")
+    @Test
+    void test1(){
 
-    //     TimKiem timKiem = new TimKiem();
-    //     timKiem.setMaSP("TPCN");
+        TimKiemForm timKiem = new TimKiemForm();
+        timKiem.setMaSP("TPCN");
 
-    //     List <ThongTin> thongTins = service.getThongTin(timKiem);
-    //     for(ThongTin thongTin : thongTins){
-    //         assertThat(thongTin.getNhanHieu().getLoaiSP()).isEqualTo("Thực Phẩm Chức Năng");
-    //     }
-    // }
+        List <ThongTin> thongTins = service.getThongTin(timKiem);
+        for(ThongTin thongTin : thongTins){
+            assertThat(thongTin.getNhanHieu().getLoaiSP()).isEqualTo("Thực Phẩm Chức Năng");
+        }
+    }
 
     @DisplayName("商品番号")
     @ParameterizedTest
     @CsvSource({"R, Rượu", "MP, Mỹ Phẩm", "TPCN, Thực Phẩm Chức Năng", "DDT, Đồ Điện Tử"})
     void test2(String maSP, String loaiSP){
 
-        TimKiem timKiem = new TimKiem();
+        TimKiemForm timKiem = new TimKiemForm();
         timKiem.setMaSP(maSP);
 
         List <ThongTin> thongTins = service.getThongTin(timKiem);
@@ -69,7 +69,7 @@ public class ThongTinServiceTest {
     @Test
     void test3(){
 
-        TimKiem timKiem = new TimKiem();
+        TimKiemForm timKiem = new TimKiemForm();
         timKiem.setMaSP("AA");
 
         List <ThongTin> thongTins = service.getThongTin(timKiem);
@@ -81,7 +81,7 @@ public class ThongTinServiceTest {
     @CsvSource({"Peleus 2.5ml", "Woman Method Triple", "Peleus 2.5ml"})
     void test4(String ten){
 
-        TimKiem timKiem = new TimKiem();
+        TimKiemForm timKiem = new TimKiemForm();
         timKiem.setKey(ten);
 
         List <ThongTin> thongTins = service.getThongTin(timKiem);
@@ -95,7 +95,7 @@ public class ThongTinServiceTest {
     @Test
     void test5(){
 
-        TimKiem timKiem = new TimKiem();
+        TimKiemForm timKiem = new TimKiemForm();
         timKiem.setKey("AAA");
 
         List <ThongTin> thongTins = service.getThongTin(timKiem);
@@ -107,7 +107,7 @@ public class ThongTinServiceTest {
     @CsvSource({"R, Yama, Yamazaki", "MP, Kate, Kate Lip Monster 10 3g", "TPCN, Peleus, Peleus 2.5ml", "DDT, TUF, TUF Gaming A15 FA506ICB"})
     void test6(String maSP, String key, String ten){
 
-        TimKiem timKiem = new TimKiem();
+        TimKiemForm timKiem = new TimKiemForm();
         timKiem.setMaSP(maSP);
         timKiem.setKey(key);
 
@@ -123,7 +123,7 @@ public class ThongTinServiceTest {
     @CsvSource({"R, B", "MP, 5"})
     void test7(String maSP, String key){
 
-        TimKiem timKiem = new TimKiem();
+        TimKiemForm timKiem = new TimKiemForm();
         timKiem.setMaSP(maSP);
         timKiem.setKey(key);
         
@@ -135,7 +135,7 @@ public class ThongTinServiceTest {
     @Test
     void test8(){
 
-        TimKiem timKiem = new TimKiem();
+        TimKiemForm timKiem = new TimKiemForm();
 
         List <ThongTin> thongTins = service.getThongTin(timKiem);
         assertThat(thongTins.size()).isEqualTo(10);

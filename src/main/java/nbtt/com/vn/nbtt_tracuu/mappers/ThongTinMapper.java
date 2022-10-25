@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Update;
 
 import nbtt.com.vn.nbtt_tracuu.beans.ThongTin;
-import nbtt.com.vn.nbtt_tracuu.beans.TimKiem;
+import nbtt.com.vn.nbtt_tracuu.beans.TimKiemForm;
 
 @Mapper
 public interface ThongTinMapper {
@@ -16,7 +16,7 @@ public interface ThongTinMapper {
      * @param timKiem
      * @return
      */
-    public List <ThongTin> selectByTimKiem(TimKiem timKiem);
+    public List <ThongTin> selectByTimKiem(TimKiemForm timKiemForm);
 
     /**
      * 商品情報を主キーで検索する

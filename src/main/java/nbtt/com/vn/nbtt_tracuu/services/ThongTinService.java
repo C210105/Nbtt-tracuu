@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import nbtt.com.vn.nbtt_tracuu.beans.NhanHieu;
 import nbtt.com.vn.nbtt_tracuu.beans.ThongTin;
-import nbtt.com.vn.nbtt_tracuu.beans.TimKiem;
+import nbtt.com.vn.nbtt_tracuu.beans.TimKiemForm;
 import nbtt.com.vn.nbtt_tracuu.mappers.NhanHieuMapper;
 import nbtt.com.vn.nbtt_tracuu.mappers.ThongTinMapper;
 
@@ -20,7 +20,7 @@ public class ThongTinService {
     @Autowired
     NhanHieuMapper nhanHieuMapper;
     
-    public List <ThongTin> getThongTin(TimKiem timKiem){
+    public List <ThongTin> getThongTin(TimKiemForm timKiem){
         return thongTinMapper.selectByTimKiem(timKiem);
     }
 
